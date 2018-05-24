@@ -5,7 +5,6 @@
 <body>
   <h1>Welcome to Meteor!</h1>
   <p>hello world</p>
-  <p>hello world</p>
 
   {{> borrower}}
   {{> lender}}
@@ -13,48 +12,31 @@
 
 <template name="borrower">
 <!--   <button>Click Me</button> -->
-
   <p>You've pressed the button {{change}} times.</p>
 
   <form>
-  抵押币种:<input id = "textid" type="text" name="firstname" value="eos">
-  <br>
-  <br>
-  币种数量:<input id = "textid1" type="text" name="firstname1" value="1000">
-  <br>
-  <br>
-  借贷币总量:<input id = "textid2" type="text" name="firstname2" value="1000">
-  <br>
-  <br>
-  借款期限:<input id = "textid3" type="text" name="firstname3" value="15">
-  <br>
-  <br>
-  借贷利息:<input id = "textid4" type="text" name="firstname4" value="0">
-  <br>
-  <br>
-
-  <br>
-  <br>
-
-  <br>
-  <button type="submit" class="submit">save and push</button>
-  <br>
-  <br>
-  <br>
-
-  borrower:
-
-  <select>
-    <option name="eos" value="eos">EOS</option>
-    <option name="eth" value="eth" selected="selected">ETH</option>
-    <option name="elend" value="elend">ELEND</option>
-  </select>
-
-  <br>
-   <br>
+    抵押币种:<input id = "textid" type="text" name="firstname" value="eos">
     <br>
-     <br>
+    <br>
+    币种数量:<input id = "textid1" type="text" name="firstname1" value="1000">
+    <br>
+    <br>
+    借贷币总量:<input id = "textid2" type="text" name="firstname2" value="1000">
+    <br>
+    <br>
+    借款期限:<input id = "textid3" type="text" name="firstname3" value="15"> <br> <br>
 
+    借贷利息:<input id = "textid4" type="text" name="firstname4" value="0"> <br> <br> <br> <br> <br>
+
+    <button type="submit" class="submit">save and push</button> <br> <br> <br>
+    
+    borrower:
+    <select>
+      <option name="eos" value="eos">EOS</option>
+      <option name="eth" value="eth" selected="selected">ETH</option>
+      <option name="elend" value="elend">ELEND</option>
+    </select>
+    <br><br><br><br>
 
   </form>
 
