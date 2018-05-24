@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import eos from 'eosjs'; 
+import { eosio } from 'eosjs'; 
 
 import './main.html';
 
