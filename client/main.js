@@ -8,8 +8,9 @@ import './main.html';
 var borrowerVar = "eos";
 var lenderVar = "eos";
 
-var Eos = eosio.Localnet(); // 127.0.0.1:8888
-Eos.getBlock();
+Eos = require('eosjs') // Eos = require('./src')
+
+eos = Eos.Localnet() // 127.0.0.1:8888
 
 
 
