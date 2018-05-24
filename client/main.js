@@ -8,11 +8,11 @@ import './main.html';
 var borrowerVar = "eos";
 var lenderVar = "eos";
 
-Eos = require('eosjs') // Eos = require('./src')
+Eos = require('eosjs'); // Eos = require('./src')
 
-eos = Eos.Localnet() // 127.0.0.1:8888
+eos = Eos.Localnet();// 127.0.0.1:8888
 
-
+eos.getBlock();
 
 //------------------borrower----------------------------------
 Template.borrower.onCreated(function helloOnCreated() {
