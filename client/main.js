@@ -13,6 +13,32 @@ Eos = require('eosjs'); // Eos = require('./src')
 eos = Eos.Localnet({httpEndpoint: 'http://192.168.43.18:8888'});// 127.0.0.1:8888
 
 eos.getBlock();
+/* Eos and Scatter Setup */
+const network = {
+  blockchain: "eos",
+  host: 'dev.cryptolions.io',
+  port: 18888
+}
+
+document.addEventListener('scatterLoaded', scatterExtension => {
+  clearTimeout(scatterDetection)
+  scatter = window.scatter
+  window.scatter = null
+
+  scatter.suggestNetwork(network)
+
+  app.ports.setScatterInstalled.send(true)
+
+  if (scatter.identity) {
+
+    const user = {
+        eosAccount: scatter.identity.accounts[0].name,
+        publicKey: scatter.identity.publicKey
+    }
+
+    app.ports.setScatterIdentity.send(user)
+  }
+})
 
 //------------------borrower----------------------------------
 Template.borrower.onCreated(function helloOnCreated() {
