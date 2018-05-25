@@ -34,6 +34,7 @@ document.addEventListener('scatterLoaded', scatterExtension => {
 
   if (scatter.identity) {
 
+    console.log("do i in the scatter");
     const user = {
         eosAccount: scatter.identity.accounts[0].name,
         publicKey: scatter.identity.publicKey
@@ -42,25 +43,7 @@ document.addEventListener('scatterLoaded', scatterExtension => {
     app.ports.setScatterIdentity.send(user)
   }
 })
-// document.addEventListener('scatterLoaded', scatterExtension => {
-//   clearTimeout(scatterDetection)
-//   scatter = window.scatter
-//   window.scatter = null
 
-//   scatter.suggestNetwork(network)
-
-//   app.ports.setScatterInstalled.send(true)
-
-//   if (scatter.identity) {
-
-//     const user = {
-//         eosAccount: scatter.identity.accounts[0].name,
-//         publicKey: scatter.identity.publicKey
-//     }
-
-//     app.ports.setScatterIdentity.send(user)
-//   }
-// })
 
 //------------------borrower----------------------------------
 Template.borrower.onCreated(function helloOnCreated() {
