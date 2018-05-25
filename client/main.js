@@ -8,12 +8,31 @@ import './main.html';
 var borrowerVar = "eos";
 var lenderVar = "eos";
 
-Eos = require('eosjs'); // Eos = require('./src')
+/* some code for fixing the cores error */
+import cors from 'cors';
 
+//FIXES CORS ERROR
+const whitelist = [
+    // Allow domains here
+    'http://localhost:3000',
+];
+const corsOptions = {
+    origin(origin, callback){
+        const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+
+/* some code for fixing the cores error end */
+
+Eos = require('eosjs'); // Eos = require('./src')
+Eos.use(cors(corsOptions));
 // eos = Eos.Localnet({httpEndpoint: 'http://192.168.43.18:8888'});// 127.0.0.1:8888
 eos = Eos.Localnet();// 127.0.0.1:8888
 
 eos.getInfo({}).then(result => {console.log(result)})
+
 /* Eos and Scatter Setup */
 const network = {
   blockchain: "eos",
