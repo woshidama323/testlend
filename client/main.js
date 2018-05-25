@@ -21,6 +21,14 @@ const network = {
   port: 18888
 }
 
+const app = document.getElementById('root');
+let scatter = null;
+
+const scatterDetection = setTimeout(() => {
+  if (scatter == null) {
+    app.ports.setScatterInstalled.send(false)
+  }
+}, 5000);
 // document.addEventListener('scatterLoaded', scatterExtension => {
 //   clearTimeout(scatterDetection)
 //   scatter = window.scatter
