@@ -13,7 +13,7 @@ Eos = require('eosjs'); // Eos = require('./src')
 // eos = Eos.Localnet({httpEndpoint: 'http://192.168.43.18:8888'});// 127.0.0.1:8888
 eos = Eos.Localnet();// 127.0.0.1:8888
 
-eos.getInfo();
+eos.getInfo({}).then(result => {console.log(result)})
 /* Eos and Scatter Setup */
 const network = {
   blockchain: "eos",
@@ -21,25 +21,25 @@ const network = {
   port: 18888
 }
 
-document.addEventListener('scatterLoaded', scatterExtension => {
-  clearTimeout(scatterDetection)
-  scatter = window.scatter
-  window.scatter = null
+// document.addEventListener('scatterLoaded', scatterExtension => {
+//   clearTimeout(scatterDetection)
+//   scatter = window.scatter
+//   window.scatter = null
 
-  scatter.suggestNetwork(network)
+//   scatter.suggestNetwork(network)
 
-  app.ports.setScatterInstalled.send(true)
+//   app.ports.setScatterInstalled.send(true)
 
-  if (scatter.identity) {
+//   if (scatter.identity) {
 
-    const user = {
-        eosAccount: scatter.identity.accounts[0].name,
-        publicKey: scatter.identity.publicKey
-    }
+//     const user = {
+//         eosAccount: scatter.identity.accounts[0].name,
+//         publicKey: scatter.identity.publicKey
+//     }
 
-    app.ports.setScatterIdentity.send(user)
-  }
-})
+//     app.ports.setScatterIdentity.send(user)
+//   }
+// })
 
 //------------------borrower----------------------------------
 Template.borrower.onCreated(function helloOnCreated() {
