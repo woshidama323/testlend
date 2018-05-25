@@ -25,7 +25,6 @@ const app = document.getElementById('root');
 let scatter = null;
 
 document.addEventListener('scatterLoaded', scatterExtension => {
-  clearTimeout(scatterDetection)
   scatter = window.scatter
   window.scatter = null
 
