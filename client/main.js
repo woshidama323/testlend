@@ -34,7 +34,7 @@ document.addEventListener('scatterLoaded', scatterExtension => {
 
   if (scatter.identity) {
 
-    console.log("do i in the scatter");
+    //console.log("do i in the scatter");
     const user = {
         eosAccount: scatter.identity.accounts[0].name,
         publicKey: scatter.identity.publicKey
