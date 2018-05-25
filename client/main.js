@@ -24,11 +24,25 @@ const network = {
 const app = document.getElementById('root');
 let scatter = null;
 
-const scatterDetection = setTimeout(() => {
-  if (scatter == null) {
-    app.ports.setScatterInstalled.send(false)
+document.addEventListener('scatterLoaded', scatterExtension => {
+  clearTimeout(scatterDetection)
+  scatter = window.scatter
+  window.scatter = null
+
+  scatter.suggestNetwork(network)
+
+  app.ports.setScatterInstalled.send(true)
+
+  if (scatter.identity) {
+
+    const user = {
+        eosAccount: scatter.identity.accounts[0].name,
+        publicKey: scatter.identity.publicKey
+    }
+
+    app.ports.setScatterIdentity.send(user)
   }
-}, 5000);
+})
 // document.addEventListener('scatterLoaded', scatterExtension => {
 //   clearTimeout(scatterDetection)
 //   scatter = window.scatter
