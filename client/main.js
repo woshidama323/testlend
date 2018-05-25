@@ -10,7 +10,7 @@ var lenderVar = "eos";
 
 Eos = require('eosjs'); // Eos = require('./src')
 
-eos = Eos.Localnet();// 127.0.0.1:8888
+eos = Eos.Localnet({httpEndpoint: 'http://192.168.43.18:8888'});// 127.0.0.1:8888
 
 eos.getBlock();
 
