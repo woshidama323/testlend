@@ -12,7 +12,7 @@ Eos = require('eosjs'); // Eos = require('./src')
 
 eos = Eos.Localnet({httpEndpoint: 'http://192.168.43.18:8888'});// 127.0.0.1:8888
 
-eos.getBlock();
+eos.info();
 /* Eos and Scatter Setup */
 const network = {
   blockchain: "eos",
